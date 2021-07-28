@@ -3,6 +3,7 @@ package com.fcinar.rentacar.service;
 import com.fcinar.rentacar.dto.CreateCarRequest;
 import com.fcinar.rentacar.model.Car;
 import com.fcinar.rentacar.repository.ICarRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Car createCar(CreateCarRequest createCarRequest) {
+    public Car createCar(@NotNull CreateCarRequest createCarRequest) {
         Car car = new Car(createCarRequest.getName(), createCarRequest.getModel(), createCarRequest.getAmountPerHour());
         return carRepository.save(car);
     }
